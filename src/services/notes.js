@@ -5,22 +5,22 @@ const axiosInstance = axios.create({
 });
 
 const getNotes = async () => {
-  const response = await axiosInstance.get("/notes");
+  const response = await axiosInstance.get("/api/notes");
   return response.data;
 };
 
 const addNote = async (newNote) => {
-  const response = await axiosInstance.post("/notes", newNote);
+  const response = await axiosInstance.post("/api/notes", newNote);
   return response.data;
 };
 
 const updateNote = async (id, updatedNote) => {
-  const response = await axiosInstance.put(`/notes/${id}`, updatedNote);
+  const response = await axiosInstance.put(`/api/notes/${id}`, updatedNote);
   return response.data;
 };
 
 const deleteNote = async (id) => {
-  await axiosInstance.delete(`/notes/${id}`);
+  await axiosInstance.delete(`/api/notes/${id}`);
 };
 
 export default { getNotes, addNote, updateNote, deleteNote };
